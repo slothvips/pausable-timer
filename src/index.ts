@@ -23,11 +23,10 @@ class PausableTimer {
   private mode: ModeType;
 
   constructor(option: IOptions) {
-    console.log(globalThis.window ? "运行在浏览器" : "运行在其它运行时");
-
     this.isDubgger = option.debug;
     // 在ts以外的环境判断下
     this.checkMode(option.mode);
+    this.isDubgger && console.log(globalThis.window ? "运行在浏览器" : "运行在其它运行时");
 
     this.timer = option.timer;
     this.mode = option.mode;
